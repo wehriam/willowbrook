@@ -1,8 +1,20 @@
-define(["underscore", "backbone", "viewmaker"], function(_, Backbone, ViewMaker){
-  var Views = function(render, is_node) {
-    var viewmaker = new ViewMaker(render, is_node);
-    this.test = viewmaker.make({}, ["templates/test.html"]);
+define(
+  ['jquery'],
+  function($) {
+    var d = $.Deferred();
+    setTimeout(function() {
+      d.resolve(2)
+    }, 500);
+    return {
+      test: {
+        data: {one: 1, two: d.promise()},
+        templates: ['templates/test.html'] 
+      },
+      test2: {
+        data: {},
+        templates: ['templates/test2.html'] 
+      }
+    }
   }
-  return Views;
-});
+);
 

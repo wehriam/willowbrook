@@ -23,7 +23,8 @@
     "location" : "*",
     "navigator" : "*",
     "xmlhttprequest" : "*",
-    "express" : "*"
+    "express" : "*",
+    "bbb" : "*"
   },
   "noAnalyze": true,
   "devDependencies": {},
