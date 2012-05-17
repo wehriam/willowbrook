@@ -24,7 +24,8 @@
     "navigator" : "*",
     "xmlhttprequest" : "*",
     "express" : "*",
-    "bbb" : "*"
+    "bbb" : "*",
+    "http-proxy": "*"
   },
   "noAnalyze": true,
   "devDependencies": {},

@@ -1,4 +1,16 @@
 var requirejs = require('requirejs');
+requirejs.config({
+  baseUrl: '../src',
+  nodeRequire: require,
+  paths: {
+    jquery: 'lib/jquery-1.7.2',
+    backbone: 'lib/backbone',
+    underscore: 'lib/underscore',
+    viewmaker: 'lib/viewmaker',
+    router: 'app/router'
+  }
+});
+var requirejs = require('requirejs');
 requirejs(['jsdom', 'location', 'xmlhttprequest', 'navigator'], function(
     jsdom, 
     location, 
@@ -26,7 +38,8 @@ requirejs(['router'], function(Router){
       }
     }, this)]);
   }
-  Router.prototype.sendRoute = function(fragment) {
+  Router.prototype.sendRoute = function(url) {
+    var fragment = url.slice(1);
     for(var i in this.routes){
       if (this.routes[i][0].test(fragment)){
         return this.routes[i][1](fragment);
