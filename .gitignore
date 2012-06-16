@@ -13,7 +13,4 @@ results
 
 node_modules
 npm-debug.log
-.template
-development
-src/dist
-src/identity.json
+www/dist

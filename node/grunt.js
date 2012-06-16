@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     // https://github.com/cowboy/grunt/blob/master/docs/task_lint.md
     lint: {
       files: [
-        "../src/build/config.js", "../src/app/*.js"
+        "../www/build/config.js", "../www/app/*.js"
       ]
     },
 
@@ -37,8 +37,8 @@ module.exports = function(grunt) {
     // The concat task depends on this file to exist, so if you decide to
     // remove this, ensure concat is updated accordingly.
     jst: {
-      "../src/dist/debug/templates.js": [
-        "../src/templates/**/*.html"
+      "../www/dist/debug/templates.js": [
+        "../www/templates/**/*.html"
       ]
     },
 
@@ -47,10 +47,10 @@ module.exports = function(grunt) {
     // dist/debug/require.js, because we want to only load one script file in
     // index.html.
     concat: {
-      "../src/dist/debug/require.js": [
-        "../src/lib/almond.js",
-        "../src/dist/debug/templates.js",
-        "../src/dist/debug/require.js"
+      "../www/dist/debug/require.js": [
+        "../www/lib/almond.js",
+        "../www/dist/debug/templates.js",
+        "../www/dist/debug/require.js"
       ]
     },
 
@@ -59,15 +59,15 @@ module.exports = function(grunt) {
     // also minifies all the CSS as well.  This is named index.css, because we
     // only want to load one stylesheet in index.html.
     mincss: {
-      "../src/dist/release/index.css": [
-        "../src/css/style.css"
+      "../www/dist/release/index.css": [
+        "../www/css/style.css"
       ]
     },
 
     // Takes the built require.js file and minifies it for filesize benefits.
     min: {
-      "../src/dist/release/require.js": [
-        "../src/dist/debug/require.js"
+      "../www/dist/release/require.js": [
+        "../www/dist/debug/require.js"
       ]
     },
 
@@ -116,13 +116,13 @@ module.exports = function(grunt) {
     // future other builders may be contributed as drop-in alternatives.
     requirejs: {
       // Include the main configuration file
-      mainConfigFile: "../src/require-config.js",
+      mainConfigFile: "../www/require-config.js",
 
       // Output file
-      out: "../src/dist/debug/require.js",
+      out: "../www/dist/debug/require.js",
 
       // Root application module
-      name: "../src/require-config",
+      name: "../www/require-config",
 
       // Do not wrap everything in an IIFE
       wrap: false

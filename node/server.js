@@ -17,7 +17,7 @@ requirejs(['jsdom', 'backbone', 'router', 'express', 'views/click', 'path'], fun
   app.use(express.logger());
   app.use(express.bodyParser());
   app.get('/', function(req, res) {
-    res.sendfile(path.normalize(__dirname + '/../src/index.html'));
+    res.sendfile(path.normalize(__dirname + '/../www/index.html'));
   });
 
 
@@ -33,12 +33,12 @@ requirejs(['jsdom', 'backbone', 'router', 'express', 'views/click', 'path'], fun
 
   app.get('*', function(req, res) {
     console.log("something");
-    res.sendfile(path.normalize(__dirname + '/../src' + req.url), function(err) {
+    res.sendfile(path.normalize(__dirname + '/../www' + req.url), function(err) {
       if (err) {
         var d = router.sendRoute(req.url);
         if(d) {
           d.done(function(s) {
-            jsdom.env(path.normalize(__dirname + '/../src/index.html'), function(errors, w) {
+            jsdom.env(path.normalize(__dirname + '/../www/index.html'), function(errors, w) {
               w.document.getElementById("main").innerHTML = s;
               res.send(w.document.innerHTML);
               w.close();

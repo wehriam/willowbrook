@@ -1,6 +1,6 @@
 var requirejs = require('requirejs');
 requirejs.config({
-  baseUrl: '../src',
+  baseUrl: '../www',
   nodeRequire: require,
   paths: {
     jquery: 'lib/jquery-1.7.2',
